@@ -1,0 +1,61 @@
+using System;
+
+class GreenvilleRevenue
+{
+    static void Main(string[] args)
+    {
+        bool isRunning = true;
+
+        while (isRunning)
+        {
+            DisplayMottoAndMenu();
+
+            string choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "1":
+                    CalculateRevenue();
+                    break;
+                case "2":
+                    Console.WriteLine("Thank you for using the Greenville Revenue App, good-bye!");
+                    isRunning = false;
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Please select option 1 or 2.");
+                    break;
+            }
+        }
+    }
+
+    static void DisplayMottoAndMenu()
+    {
+        Console.WriteLine("************************************");
+        Console.WriteLine("*  The stars shine in Greenville.  *");
+        Console.WriteLine("************************************");
+        Console.WriteLine("Please Enter the following number below from the following menu:");
+        Console.WriteLine("1. CALCULATE Greenville Revenue Year-Over-Year");
+        Console.WriteLine("2. Exit");
+    }
+
+    static void CalculateRevenue()
+    {
+        Console.Write("Enter last year's number of contestants: ");
+        int lastYearContestants = int.Parse(Console.ReadLine());
+
+        Console.Write("Enter this year's number of contestants: ");
+        int thisYearContestants = int.Parse(Console.ReadLine());
+
+        int revenue = thisYearContestants * 25;
+        Console.WriteLine($"Last year's competition had {lastYearContestants} contestants, and this year's has {thisYearContestants} contestants");
+        Console.WriteLine($"Revenue expected this year is ${revenue}");
+
+        if (thisYearContestants > lastYearContestants)
+        {
+            Console.WriteLine("It is true that this year's competition is bigger than last year's.");
+        }
+        else
+        {
+            Console.WriteLine("It is not true that this year's competition is bigger than last year's.");
+        }
+    }
+}
